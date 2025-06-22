@@ -19,11 +19,17 @@
             font-size: 0.9em;
             color: #ff0000;
         }
+
+        .cute-input {
+            border-radius: 12px;
+            padding: 8px;
+            border: 1px solid #ff69b4;
+        }
     </style>
 </head>
 
 <div class="text-center">
-    <h1 class="display-4" style="color: #ff69b4">🌷 CRUD EXPENSE 🌷</h1>
+    <h1 style="color: #ff69b4">🌷 CRUD Expense 🌷</h1>
     <p style="color: #ff69b4">✏️ Create Or Edit Your Expenses 💵</p>
 </div>
 
@@ -31,17 +37,17 @@
 
     <div class="mb-3">
         <label style="color: #ff69b4">💰 Value</label>
-        <input class="form-control" type="number" placeholder="0" asp-for="value" step="0.01" style="border: 1px solid #ff69b4;" />
+        <input class="form-control cute-input" type="number" placeholder="0" asp-for="value" step="0.01" />
         <span asp-validation-for="value" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label style="color: #ff69b4">🗒️ Description</label>
-        <input class="form-control" type="text" placeholder="Add A Description" asp-for="description" style="border: 1px solid #ff69b4;" />
+        <input class="form-control cute-input" type="text" placeholder="Add A Description" asp-for="description" />
         <span asp-validation-for="description" class="text-danger"></span>
     </div>
 
-    <button class="btn mt-4" type="submit" style="background-color: #ff69b4; color: #fff; border: none;">
+    <button class="btn mt-4" type="submit" style="background-color: #ff69b4; color: #fff; border: none; border-radius: 12px;">
         ✅ Confirm
     </button>
 
@@ -50,3 +56,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
