@@ -7,16 +7,35 @@ namespace Appdev2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ExpensesDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ExpensesDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+        public IActionResult Expense()
+        {
+            var allExpenses = _context.Expenses.ToList();
+            return View(allExpenses);
+        }
+        public IActionResult CreateEditExpense()
+        {
+            return View();
+        }
+        public IActionResult CreateEditExpenseForm(Expense model)
+        {
+            _context.Expenses.Add(model);
+
+            _context.SaveChanges();
+            return RedirectToAction("Expense");
+        }
+
 
         public IActionResult Privacy()
         {

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Expense";
+}
+<div class="text-center">
+    <h1 class="display-4" style="color: #ff69b4">Expenses</h1>
+    <p style="color: #ff69b4">View Your Expenses Here</p>
+    <a asp-controller="Home" asp-action="CreateEditExpense" class="btn" style="background-color: #ff69b4; color: #fff; border: none;">
+        Create New
+    </a>
+
+    <!-- Nagdagdag ako ng space sa pagitan ng Create New at Table -->
+    <div class="mb-4"></div>
+
+    <table class="table table-striped table-bordered table-hover" style="border-color: #ff69b4;">
+        <thead class="thead-dark" style="background-color: #ff69b4; color: #fff;">
+            <tr>
+                <th>ID</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expense in Model)
+            {
+                <tr>
+                    <td>@expense.id</td>
+                    <td>@expense.value</td>
+                    <td>@expense.description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
